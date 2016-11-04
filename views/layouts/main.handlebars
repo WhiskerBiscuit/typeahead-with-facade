@@ -1,0 +1,482 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{{title}}</title>
+        <style type="text/css">
+            #type-ahead__examples {
+                padding: 20px 20px 300px 20px;
+            }
+
+            #type-ahead__examples section {
+                margin-bottom: 20px;
+                padding-bottom: 20px;
+            }
+
+            #type-ahead__examples > section > div {
+                margin-bottom: 25px;
+                background-color: #e0e0e0;
+                padding: 10px;
+            }
+
+            pre, p {
+                margin: 0;
+                font-size: 12px;
+            }
+        </style>
+    </head>
+    <body>
+        {{{body}}}
+        <input type="search" name="test" value=""/>
+        <script type="text/javascript" src="http://localhost:3000/build/TypeAheadFacade.js"></script>
+        <!--<script type="text/javascript" src="http://localhost:3000/dist/FindProviderApplicationLoader.js"></script>-->
+
+        <h1>Type Ahead Examples</h1>
+
+        <div id="type-ahead__examples" action="" method="GET">
+
+            <section>
+                <h2>INPUTS</h2>
+
+                <div>
+                    <label for="type-ahead--input-local-strings">1. Input with LOCAL array of STRINGS</label>
+                    <pre>
+<code>
+    new com.package.TypeAheadFacade($('selector'), {
+    dataSources : [{data : arrayOfStrings}]
+    });
+</code>
+</pre>
+                    <input type="search" id="type-ahead--input-local-strings" name="type-ahead--input-local-strings"
+                           class="form-text"/>
+                </div>
+
+                <div>
+                    <label for="type-ahead--input-local-objects">2. Input with LOCAL array of OBJECTS</label>
+                    <pre>
+<code>
+    new com.package.TypeAheadFacade($('selector'), {
+    dataSources : [{
+    data : arrayOfObjects,
+    displayNode : 'name'
+    }]
+    });
+</code>
+</pre>
+                    <input type="search" id="type-ahead--input-local-objects" name="type-ahead--input-local-objects"
+                           class="form-text"/>
+                </div>
+
+                <div>
+                    <label for="type-ahead--input-remote-strings">3. Input with REMOTE array of STRINGS</label>
+                    <pre>
+<code>
+    new com.package.TypeAheadFacade($('selector'), {
+    dataSources : [{data : '/find-a-doctor/languages?query=%QUERY'}]
+    });
+</code>
+</pre>
+                    <input type="search" id="type-ahead--input-remote-strings" name="type-ahead--input-remote-strings"
+                           class="form-text"/>
+                </div>
+
+                <div>
+                    <label for="type-ahead--input-remote-objects">4. Input with REMOTE array of OBJECTS</label>
+                    <pre>
+<code>
+    new com.package.TypeAheadFacade($('selector'), {
+    dataSources : [{
+    data : '/find-a-doctor/specialties?query=%QUERY',
+    displayNode : 'name'
+    }]
+    });
+</code>
+</pre>
+                    <input type="search" id="type-ahead--input-remote-objects" name="type-ahead--input-remote-objects"
+                           class="form-text"/>
+                </div>
+            </section>
+
+            <section>
+                <h2>MULTI INPUTS</h2>
+
+                <div>
+                    <label for="type-ahead--multi-input-local-strings">5. Multi Input with LOCAL array of
+                        STRINGS</label>
+                    <pre>
+<code>
+    new com.package.TypeAheadFacade($('selector'), {
+    typeAhead : { multiSelect: true },
+    dataSources : [{data : arrayOfStrings}]
+    });
+</code>
+</pre>
+                    <input type="search" id="type-ahead--multi-input-local-strings"
+                           name="type-ahead--multi-input-local-strings" class="form-text"/>
+                </div>
+
+                <div>
+                    <label for="type-ahead--multi-input-local-objects">6. Multi Input with LOCAL array of
+                        OBJECTS</label>
+                    <pre>
+<code>
+    new com.package.TypeAheadFacade($('selector'), {
+    typeAhead : { multiSelect: true },
+    dataSources : [{
+    data : arrayOfObjects,
+    displayNode : 'name'
+    }]
+    });
+</code>
+</pre>
+                    <input type="search" id="type-ahead--multi-input-local-objects"
+                           name="type-ahead--multi-input-local-objects" class="form-text"/>
+                </div>
+
+                <div>
+                    <label for="type-ahead--multi-input-remote-strings">7. Multi Input with REMOTE array of
+                        STRINGS</label>
+                    <pre>
+<code>
+    new com.package.TypeAheadFacade($('selector'), {
+    typeAhead : { multiSelect: true },
+    dataSources : [{
+    data : '/find-a-doctor/languages?query=%QUERY'
+    }]
+    });
+</code>
+</pre>
+                    <input type="search" id="type-ahead--multi-input-remote-strings"
+                           name="type-ahead--multi-input-remote-strings" class="form-text"/>
+                </div>
+
+                <div>
+                    <label for="type-ahead--multi-input-remote-objects">8. Multi Input with REMOTE array of
+                        OBJECTS</label>
+                    <pre>
+<code>
+    new com.package.TypeAheadFacade($('selector'), {
+    typeAhead : { multiSelect: true },
+    dataSources : [{
+    data : '/find-a-doctor/specialties?query=%QUERY',
+    displayNode : 'name'
+    }]
+    });
+</code>
+</pre>
+                    <input type="search" id="type-ahead--multi-input-remote-objects"
+                           name="type-ahead--multi-input-remote-objects" class="form-text"/>
+                </div>
+            </section>
+
+            <section>
+                <h2>SELECTS</h2>
+
+                <div>
+                    <label for="type-ahead--select-local-options">9. Select with single selection</label>
+
+                    <p>Uses options for data</p>
+                    <pre>
+<code>
+    new com.package.TypeAheadFacade($('selector'));
+</code>
+</pre>
+                    <select id="type-ahead--select-local-options" name="type-ahead--select-local-options"
+                            class="form-text">
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR" selected="selected">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="type-ahead--multi-select-local-options">10. Select with multiple selections</label>
+
+                    <p>Uses options for data</p>
+                    <pre>
+<code>
+    new com.package.TypeAheadFacade($('selector'), {typeAhead : { multiSelect: true }});
+</code>
+</pre>
+                    <select id="type-ahead--multi-select-local-options" name="type-ahead--multi-select-local-options"
+                            multiple="multiple" class="form-text">
+                        <option value="AL">Alabama</option>
+                        <option value="AK" selected="selected">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO" selected="selected">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="FL" selected="selected">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                    </select>
+                </div>
+            </section>
+
+            <section>
+                <h2>MISCELLANEOUS</h2>
+
+                <div>
+                    <label for="type-ahead--input-multiple-data-sets">11. Input with multiple data sets and custom
+                        templates</label>
+                    <pre>
+<code>
+    var htmlHeader = function(text) {return '&lt;div style="padding: 5px 10px; background-color: #e0e0e0; font-weight:
+    600;"&gt;' + text + '&lt;/div&gt;';};
+    var htmlEmpty = function(text1, text2) {return '&lt;div style="padding: 5px 10px; background-color: #e0e0e0;
+    font-weight: 600;"&gt;' + text1 + '&lt;/div&gt;&lt;div style="padding: 5px 10px;"&gt;No results for : ' + text2 + '&lt;/div&gt;';};
+    var typeAheadSettings = {
+    dataSources : [
+    {
+    data : arrayOfStrings,
+    templates : {
+    empty : function(query) { return htmlEmpty('Local Array of Strings', query.query); },
+    header : function(data) { return htmlHeader('Local Array of Strings'); }
+    }
+    },
+    {
+    data : arrayOfObjects,
+    displayNode : 'name',
+    templates : {
+    empty : function(query) { return htmlEmpty('Local Array of Objects', query.query); },
+    header : function(data) { return htmlHeader('Local Array of Objects'); }
+    }
+    },
+    {
+    data : '/find-a-doctor/languages?query=%QUERY',
+    templates : {
+    empty : function(query) { return htmlEmpty('Remote Array of Strings', query.query); },
+    header : function(data) { return htmlHeader('Remote Array of Strings'); },
+    pending : function(query) { return '&lt;div style="padding: 5px 10px;"&gt;Searching for :' + query.query + '&lt;/div&gt;';
+    }
+    }
+    }
+    ]
+    };
+    var testTypeAhead = new com.package.TypeAheadFacade($('selector'), typeAheadSettings);
+    testTypeAhead.onSelect(function() {
+    console.log(this.getCurrentSelection());
+    console.log(this.getAllSelections());
+    });
+</code>
+</pre>
+                    <input type="search" id="type-ahead--input-multiple-data-sets"
+                           name="type-ahead--input-multiple-data-sets" class="form-text"/>
+                </div>
+            </section>
+        </div>
+
+    
+    <script type="text/javascript">
+
+            var arrayOfStrings = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
+                'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
+                'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
+                'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
+                'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
+                'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
+                'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
+                'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
+                'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
+            ];
+
+            var arrayOfObjects = [
+                {"name": "Alabama", "abbr": "AL"},
+                {"name": "Alaska", "abbr": "AK"},
+                {"name": "Arizona", "abbr": "AZ"},
+                {"name": "Arkansas", "abbr": "AR"},
+                {"name": "California", "abbr": "CA"},
+                {"name": "Colorado", "abbr": "CO"},
+                {"name": "Connecticut", "abbr": "CT"},
+                {"name": "Delaware", "abbr": "DE"},
+                {"name": "Florida", "abbr": "FL"},
+                {"name": "Georgia", "abbr": "GA"},
+                {"name": "Hawaii", "abbr": "HI"},
+                {"name": "Idaho", "abbr": "ID"},
+                {"name": "Illinois", "abbr": "IL"},
+                {"name": "Indiana", "abbr": "IN"},
+                {"name": "Iowa", "abbr": "IA"},
+                {"name": "Kansas", "abbr": "KS"},
+                {"name": "Kentucky", "abbr": "KY"},
+                {"name": "Louisiana", "abbr": "LA"},
+                {"name": "Maine", "abbr": "ME"},
+                {"name": "Maryland", "abbr": "MD"},
+                {"name": "Massachusetts", "abbr": "MA"},
+                {"name": "Michigan", "abbr": "MI"},
+                {"name": "Minnesota", "abbr": "MN"},
+                {"name": "Mississippi", "abbr": "MS"},
+                {"name": "Missouri", "abbr": "MO"},
+                {"name": "Montana", "abbr": "MT"},
+                {"name": "Nebraska", "abbr": "NE"},
+                {"name": "Nevada", "abbr": "NV"},
+                {"name": "New Hampshire", "abbr": "NH"},
+                {"name": "New Jersey", "abbr": "NJ"},
+                {"name": "New Mexico", "abbr": "NM"},
+                {"name": "New York", "abbr": "NY"},
+                {"name": "North Carolina", "abbr": "NC"},
+                {"name": "North Dakota", "abbr": "ND"},
+                {"name": "Ohio", "abbr": "OH"},
+                {"name": "Oklahoma", "abbr": "OK"},
+                {"name": "Oregon", "abbr": "OR"},
+                {"name": "Pennsylvania", "abbr": "PA"},
+                {"name": "Rhode Island", "abbr": "RI"},
+                {"name": "South Carolina", "abbr": "SC"},
+                {"name": "South Dakota", "abbr": "SD"},
+                {"name": "Tennessee", "abbr": "TN"},
+                {"name": "Texas", "abbr": "TX"},
+                {"name": "Utah", "abbr": "UT"},
+                {"name": "Vermont", "abbr": "VT"},
+                {"name": "Virginia", "abbr": "VA"},
+                {"name": "Washington", "abbr": "WA"},
+                {"name": "West Virginia", "abbr": "WV"},
+                {"name": "Wisconsin", "abbr": "WI"},
+                {"name": "Wyoming", "abbr": "WY"}
+            ];
+
+            // EXAMPLE 1
+            // Input based type ahead using a local array of strings as the data source
+            new com.package.TypeAheadFacade(document.getElementById('type-ahead--input-local-strings'), {dataSources: [{data: arrayOfStrings}]})
+                    .onSelect(function () { /*console.log(this.allSelections);*/
+                    });
+
+            // EXAMPLE 2
+            // Input based type ahead using a local array of objects as the data source
+            new com.package.TypeAheadFacade(document.getElementById('type-ahead--input-local-objects'), {dataSources: [{data: arrayOfObjects, displayNode: 'name'}]})
+                    .onSelect(function () { /*console.log(this.allSelections);*/
+                    });
+
+            // EXAMPLE 3
+            // Input based type ahead using a remote array of strings as the data source
+            new com.package.TypeAheadFacade(document.getElementById('type-ahead--input-remote-strings'), {dataSources: [{data: '/find-a-doctor/languages?query=%QUERY'}]})
+                    .onSelect(function () { /*console.log(this.allSelections);*/
+                    });
+
+            // EXAMPLE 4
+            // Input based type ahead using a remote array of objects as the data source
+            new com.package.TypeAheadFacade(document.getElementById('type-ahead--input-remote-objects'), {
+                dataSources: [{
+                    data: '/find-a-doctor/specialties?query=%QUERY',
+                    displayNode: 'name'
+                }]
+            })
+                    .onSelect(function () { /*console.log(this.allSelections);*/
+                    });
+
+            // EXAMPLE 5
+            // Multi Input based type ahead using a local array of strings as the data source
+            new com.package.TypeAheadFacade(document.getElementById('type-ahead--multi-input-local-strings'), {
+                typeAhead: {multiSelect: true},
+                dataSources: [{data: arrayOfStrings}]
+            })
+                    .onSelect(function () { /*console.log(this.allSelections);*/
+                    });
+
+            // EXAMPLE 6
+            // Multi Input based type ahead using a local array of objects as the data source
+            new com.package.TypeAheadFacade(document.getElementById('type-ahead--multi-input-local-objects'), {
+                typeAhead: {multiSelect: true},
+                dataSources: [{data: arrayOfObjects, displayNode: 'name'}]
+            })
+                    .onSelect(function () { /*console.log(this.allSelections);*/
+                    });
+
+            // EXAMPLE 7
+            // Multi Input based type ahead using a remote array of strings as the data source
+            new com.package.TypeAheadFacade(document.getElementById('type-ahead--multi-input-remote-strings'), {
+                typeAhead: {multiSelect: true},
+                dataSources: [{data: 'http://api.geonames.org/searchJSON?q=%QUERY&maxRows=10&username=demo'}]
+            })
+                    .onSelect(function () { /*console.log(this.allSelections);*/
+                    });
+
+            // EXAMPLE 8
+            // Multi Input based type ahead using a remote array of objects as the data source
+            new com.package.TypeAheadFacade(document.getElementById('type-ahead--multi-input-remote-objects'), {
+                typeAhead: {multiSelect: true},
+                dataSources: [{data: 'http://api.geonames.org/searchJSON?q=%QUERY&maxRows=10&username=demo', displayNode: 'name'}]
+            })
+                    .onSelect(function () { /*console.log(this.allSelections);*/
+                    });
+
+            // EXAMPLE 9
+            // Select based type ahead with single selection using its options as the data source
+            new com.package.TypeAheadFacade(document.getElementById('type-ahead--select-local-options'))
+                    .onSelect(function () { /*console.log(this.allSelections);*/
+                    });
+
+            // EXAMPLE 10
+            // Select based type ahead with multiple selection using its options as the data source
+            new com.package.TypeAheadFacade(document.getElementById('type-ahead--multi-select-local-options'), {typeAhead: {multiSelect: true}})
+                    .onSelect(function () { /*console.log(this.allSelections);*/
+                    });
+
+            // EXAMPLE 11
+            // Select based type ahead with multiple selection using its options as the data source
+            var htmlHeader = function (text) {
+                return '<div style="padding: 5px 10px; background-color: #e0e0e0; font-weight: 600;">' + text + '</div>';
+            };
+            var htmlEmpty = function (text1, text2) {
+                return '<div style="padding: 5px 10px; background-color: #e0e0e0; font-weight: 600;">' + text1 + '</div><div style="padding: 5px 10px;">No results for : ' + text2 + '</div>';
+            };
+            var inputUsingMultipleDataSetsSettings = {
+                dataSources: [
+                    {
+                        data: arrayOfStrings,
+                        templates: {
+                            empty: function (query) {
+                                return htmlEmpty('Local Array of Strings', query.query);
+                            },
+                            header: function () {
+                                return htmlHeader('Local Array of Strings');
+                            }
+                        }
+                    },
+                    {
+                        data: arrayOfObjects,
+                        displayNode: 'name',
+                        templates: {
+                            empty: function (query) {
+                                return htmlEmpty('Local Array of Objects', query.query);
+                            },
+                            header: function () {
+                                return htmlHeader('Local Array of Objects');
+                            }
+                        }
+                    },
+                    {
+                        data: 'http://api.geonames.org/searchJSON?q=%QUERY&maxRows=10&username=demo',
+                        templates: {
+                            empty: function (query) {
+                                return htmlEmpty('Remote Array of Strings', query.query);
+                            },
+                            header: function () {
+                                return htmlHeader('Remote Array of Strings');
+                            },
+                            pending: function (query) {
+                                return '<div style="padding: 5px 10px;">Searching for :' + query.query + '</div>';
+                            }
+                        }
+                    }
+                ]
+            };
+            var testTypeAhead = new com.package.TypeAheadFacade(document.getElementById('type-ahead--input-multiple-data-sets'), inputUsingMultipleDataSetsSettings);
+            testTypeAhead.onSelect(function () {
+                /*console.log(this.currentSelection);*/
+                /*console.log(this.allSelections);*/
+            });
+
+    </script>
+    </body>
+</html>

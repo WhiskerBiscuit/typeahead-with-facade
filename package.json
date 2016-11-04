@@ -1,41 +1,29 @@
 {
-  "name": "corejs-typeahead",
-  "description": "fast and fully-featured autocomplete library",
+  "name": "typeahead-with-facade",
+  "description": "Facade to simplify usage of the Twitter based typeahead.js.  Forked from https://github.com/corejavascript/typeahead.js.",
   "keywords": [
     "typeahead",
     "autocomplete"
   ],
-  "homepage": "http://corejavascript.github.io/typeahead.js/",
-  "bugs": "https://github.com/corejavascript/typeahead.js/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/corejavascript/typeahead.js.git"
+    "url": "https://github.com/WhiskerBiscuit/typeahead-with-facade.git"
   },
   "author": {
-    "name": "Twitter, Inc.",
-    "url": "https://twitter.com/twitteross"
+    "name": "WhiskerBiscuit"
   },
-  "contributors": [
-    {
-      "name": "Jake Harding",
-      "url": "https://twitter.com/JakeHarding"
-    },
-    {
-      "name": "Tim Trueman",
-      "url": "https://twitter.com/timtrueman"
-    },
-    {
-      "name": "Veljko Skarich",
-      "url": "https://twitter.com/vskarich"
-    }
-  ],
   "license": "See license in LICENSE",
   "dependencies": {
-    "jquery": ">=1.7"
+    "jquery": "^2.2.4"
   },
   "devDependencies": {
+    "body-parser": "^1.15.1",
     "chai": "^3.3.0",
     "colors": "^1.1.2",
+    "cookie-parser": "^1.4.2",
+    "del": "^2.2.2",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
     "grunt": "~0.4",
     "grunt-concurrent": "^2.0.3",
     "grunt-contrib-clean": "^0.6.0",
@@ -48,24 +36,50 @@
     "grunt-sed": "~0.1",
     "grunt-step": "~0.2.0",
     "grunt-umd": "^2.3.3",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-help": "^1.6.1",
+    "gulp-karma": "0.0.5",
+    "gulp-sass-lint": "^1.2.0",
+    "jasmine-core": "^2.5.2",
+    "jasmine-sinon": "^0.4.0",
     "karma": "^0.13.14",
     "karma-chrome-launcher": "^0.2.1",
     "karma-coverage": "^0.5.2",
     "karma-firefox-launcher": "^0.1.3",
     "karma-jasmine": "^0.1.6",
+    "karma-jasmine-jquery": "^0.1.1",
+    "karma-jasmine-sinon": "^1.0.4",
+    "karma-junit-reporter": "^1.1.0",
+    "karma-mocha": "^1.2.0",
+    "karma-mocha-reporter": "^2.2.0",
     "karma-opera-launcher": "^0.3.0",
     "karma-phantomjs-launcher": "^0.2.1",
     "karma-safari-launcher": "^0.1.1",
+    "karma-sinon": "^1.0.5",
+    "karma-spec-reporter": "0.0.26",
+    "karma-webpack": "^1.8.0",
     "mocha": "^2.3.3",
+    "morgan": "^1.7.0",
     "node-static": "^0.7.7",
+    "object-assign": "^4.1.0",
+    "path": "^0.12.7",
     "phantomjs": "^2.1.7",
+    "phantomjs-prebuilt": "^2.1.13",
+    "require-dir": "^0.3.1",
+    "run-sequence": "^1.2.2",
     "semver": "^5.0.3",
+    "serve-favicon": "^2.3.0",
+    "sinon": "^1.17.6",
+    "source-map-support": "^0.4.5",
     "underscore": "^1.6.0",
+    "webpack": "^1.13.3",
     "yiewd": "^0.6.0"
   },
   "scripts": {
+    "start-server": "node server.js",
     "test": "bower install && ./node_modules/karma/bin/karma start --single-run --browsers PhantomJS"
   },
-  "version": "0.11.2",
-  "main": "dist/typeahead.bundle.js"
+  "version": "0.9.0",
+  "main": "dist/typeahead-with-facade.bundle.js"
 }
